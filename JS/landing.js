@@ -74,20 +74,18 @@ function buildNav() {
                 behavior: 'smooth'
             })
         })
-        liEl.style.color = 'pink';
-        liEl.style.padding = '5px';
     }
 }
 // scroll to anchor id using scrollTo event
 function handleScroll() {
     let liEl = document.querySelectorAll('.nav-item');
-    for (let p = o; p < positions.length; p++) {
-        let firstSection = positions[p];
-        let secondSection = positions[p + 1];
+    for (let s = o; s < positions.length; s++) {
+        let firstSection = positions[s];
+        let secondSection = positions[s + 1];
         let position = window.pageYOffset; //get position
         if (firstSection <= position && secondSection >= positions) {
-            liEl[p].classList.add('active'); //add element
-            sections[p].classList.add('active-section'); //add active
+            liEl[s].classList.add('active'); //add element
+            sections[s].classList.add('active-section'); //add active
         }
     }
 }
