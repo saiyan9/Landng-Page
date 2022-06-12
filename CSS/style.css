@@ -19,7 +19,8 @@ body {
 }
 
 li {
-    cursor: pointer;
+    cursor: grab;
+    padding: 3px;
 }
 
 /* Typeography General*/
@@ -69,10 +70,9 @@ section {
 /* Navigation Styles*/
 nav {
     display: flex;
-    justify-content: end;
-    align-items: flex-end;
     padding: 10px;
     background-color: purple;
+    color: pink;
 }
 .navbar__menu ul {
     padding-left: 0;
