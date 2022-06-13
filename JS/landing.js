@@ -68,6 +68,7 @@ function buildNav() {
             e.target.classList.add('active');
             let secId = e.target.getAttribute("data-id"); //get the section ID value
             let scrollTarget = document.getElementById(secId);
+            liEl.style.backgroundColor = "red";
             //make the scrolling smooth
             window.scroll({
                 top: scrollTarget.offsetTop,
