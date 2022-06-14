@@ -80,16 +80,18 @@ function buildNav() {
 // scroll to anchor id using scrollTo event
 function handleScroll() {
     let liEl = document.querySelectorAll('.nav-item');
-    for (let s = o; s < positions.length; s++) {
+    for (let s = 0; s < positions.length; s++) {
         let firstSection = positions[s];
         let secondSection = positions[s + 1];
         let position = window.pageYOffset; //get position
-        if (firstSection <= position && secondSection >= positions) {
+        if (firstSection <= positions && secondSection >= positions) {
             liEl[s].classList.add('active'); //add element
-            sections[s].classList.add('active-section'); //add active
+            sections[s].classList.add('your-active-class'); //add active
+        } else {
+            liEl[s].classList.remove('active');
         }
     }
-}
+};
 
 
 
