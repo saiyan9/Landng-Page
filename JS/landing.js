@@ -93,7 +93,20 @@ function handleScroll() {
     }
 };
 
-
+window.addEventListener("scroll", () => {
+    let positions = [];
+    for (let i=0; i < sections.length; i++) {
+        let navList = document.querySelectorAll("sections");
+        if (handleScroll.top < window.innerHeight && handleScroll.bottom > 0) {
+            sections[i].classList.add("your-active-class");
+            for (let i = 0; i < liEl.length; i++) {
+                if (sections[i].classList.contains("your-active-class")) {
+                    sections.style.color = "red";
+                }
+            }
+        } 
+    }
+}); 
 
 /**
  * End Main Functions
