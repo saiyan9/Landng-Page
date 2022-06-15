@@ -65,48 +65,33 @@ function buildNav() {
         liEl.addEventListener('click', function(e) {
             //Add class 'active' to section when near top of viewport
             e.preventDefault();
-            e.target.classList.add('active');
+            e.target.classList.add('your-active-class');
             let secId = e.target.getAttribute("data-id"); //get the section ID value
             let scrollTarget = document.getElementById(secId);
-            liEl.style.backgroundColor = "red";
+            liEl.style.backgroundColor = 'red';
+        
             //make the scrolling smooth
             window.scroll({
                 top: scrollTarget.offsetTop,
                 behavior: 'smooth'
-            })
-        })
+            });
+        });
     }
-}
-// scroll to anchor id using scrollTo event
-function handleScroll() {
-    let liEl = document.querySelectorAll('.nav-item');
-    for (let s = 0; s < positions.length; s++) {
-        let firstSection = positions[s];
-        let secondSection = positions[s + 1];
-        let position = window.pageYOffset; //get position
-        if (firstSection <= positions && secondSection >= positions) {
-            liEl[s].classList.add('active'); //add element
-            sections[s].classList.add('your-active-class'); //add active
+};
+ function checkViewport() {
+    const sections = document.querySelectorAll('section');
+    for (const section of sections) {
+        const screen = section.getBoundingClientRect();
+        if (screen.top <= 150 && screen.bottom >= -150) {
+            section.classList.add('your-active-class');
+            section.style.backgroundColor = 'red';
         } else {
-            liEl[s].classList.remove('active');
+            section.classList.remove('your-active-class');
+            section.style.backgroundColor = 'black';
         }
     }
 };
 
-window.addEventListener("scroll", () => {
-    let positions = [];
-    for (let i=0; i < sections.length; i++) {
-        let navList = document.querySelectorAll("sections");
-        if (handleScroll.top < window.innerHeight && handleScroll.bottom > 0) {
-            sections[i].classList.add("your-active-class");
-            for (let i = 0; i < liEl.length; i++) {
-                if (sections[i].classList.contains("your-active-class")) {
-                    sections.style.color = "red";
-                }
-            }
-        } 
-    }
-}); 
 
 /**
  * End Main Functions
