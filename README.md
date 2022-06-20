@@ -8,7 +8,7 @@ A multi-section landing page, with a functional, dynamic navigation menu. In thi
 * CSS
 * JavaScript
 
-#Structure
+## Structure
 * CSS
   * style.css   
 * JS
